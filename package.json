@@ -1,0 +1,12 @@
+{
+  "name": "v-bootstrap-buttons",
+  "version": "1.0.0",
+  "description": "A Vue component that allows you to manage group buttons.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": ["vue","bootstrap", "button"],
+  "author": "Sukohi Kuhoh",
+  "license": "MIT"
+}
