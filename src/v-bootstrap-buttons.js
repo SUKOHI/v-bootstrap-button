@@ -1,4 +1,4 @@
-Vue.component('bootstrap-buttons', {
+Vue.component('v-bootstrap-buttons', {
     props: [
         'options',
         'name',

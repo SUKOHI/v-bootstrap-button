@@ -1,6 +1,6 @@
 'use strict';
 
-Vue.component('bootstrap-buttons', {
+Vue.component('v-bootstrap-buttons', {
     props: ['options', 'name', 'value', 'type', 'size'],
     template: '<div>' + '<div :class="groupClass">' + '<button v-for="(label, key) in options" type="button" :class="btnClass" :data-key="key" @click="setValue(key)" v-html="label"></button>' + '</div>' + '<input :name="name" type="hidden" :value="value">' + '</div>',
     methods: {

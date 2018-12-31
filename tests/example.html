@@ -13,12 +13,12 @@
 <div id="app">
     <div>
         <p>Selected ID: {{ selected }}</p>
-        <bootstrap-buttons :options="options"
+        <v-bootstrap-buttons :options="options"
                            name="os"
                            type="info"
                            size="md"
                            v-model="selected"
-                           @select="onSelect"></bootstrap-buttons>
+                           @select="onSelect"></v-bootstrap-buttons>
         <br>
     </div>
     <button @click="changeSelectedOption()">Change Selected Option</button><br>
