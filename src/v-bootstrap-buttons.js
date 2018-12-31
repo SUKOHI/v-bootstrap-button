@@ -31,6 +31,8 @@ Vue.component('v-bootstrap-buttons', {
 
                 }
 
+                button.blur();
+
             }
 
         },

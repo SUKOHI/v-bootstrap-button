@@ -19,6 +19,8 @@ Vue.component('v-bootstrap-buttons', {
 
                     button.classList.remove('active');
                 }
+
+                button.blur();
             }
         },
         setValue: function setValue(value) {
