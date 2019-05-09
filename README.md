@@ -1,4 +1,4 @@
-# v-bootstrap-button
+# v-bootstrap-buttons
 A Vue component that allows you to manage group buttons.
 
 # Installation
@@ -12,7 +12,7 @@ Please see `example.html` located in `tests`.
 # Dependencies
 
 This package needs only `bootstrap.css`.  
-It means that jQuery and bootstrap.js are NOT 
+It means that `jQuery` and `bootstrap.js` are NOT 
 necessary.
 
 # License
