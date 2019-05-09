@@ -4,11 +4,12 @@ Vue.component('v-bootstrap-buttons', {
         'name',
         'value',
         'type',
-        'size'
+        'size',
+        'collection'
     ],
     template: '<div>'+
         '<div :class="groupClass">' +
-        '<button v-for="(label, key) in options" type="button" :class="btnClass" :data-key="key" @click="setValue(key)" v-html="label"></button>' +
+        '<button v-for="(option,key) of options" type="button" :class="btnClass" :data-key="getItemKey(key)" @click="setValue(key)" v-html="getItemLabel(key)"></button>' +
         '</div>' +
         '<input :name="name" type="hidden" :value="value">'+
         '</div>',
@@ -36,17 +37,61 @@ Vue.component('v-bootstrap-buttons', {
             }
 
         },
-        setValue(value) {
+        setValue(key) {
 
-            this.$emit('input', value);
+            if(this.isCollection) {
+
+                key = this.getCollectionKey(key);
+
+            }
+
+            this.$emit('input', key);
+
+        },
+        getItemKey(key) {
+
+            if(this.isCollection) {
+
+                return this.getCollectionKey(key);
+
+            }
+
+            return key;
+
+        },
+        getItemLabel(key) {
+
+            if(this.isCollection) {
+
+                return this.getCollectionLabel(key);
+
+            }
+
+            return this.options[key];
+
+        },
+        getCollectionKey(index) {
+
+            if(this.options[index]) {
+
+                return this.options[index][this.collectionKeys.key];
+
+            }
+
+            return '';
+
+        },
+        getCollectionLabel(index) {
+
+            return this.options[index][this.collectionKeys.value];
 
         }
     },
     computed: {
         btnClass() {
 
-            var type = (this.type === undefined) ? 'btn-default' : 'btn-'+ this.type;
-            var size = (this.size === undefined) ? 'btn-md' : 'btn-'+ this.size;
+            const type = (this.type === undefined) ? 'btn-default' : 'btn-'+ this.type;
+            const size = (this.size === undefined) ? 'btn-md' : 'btn-'+ this.size;
             return ['btn', type, size];
 
         },
@@ -58,6 +103,23 @@ Vue.component('v-bootstrap-buttons', {
         valueString() {
 
             return (this.value) ? this.value.toString() : '';
+
+        },
+        isCollection() {
+
+            return (
+                this.collection !== undefined &&
+                this.collection !== ''
+            );
+
+        },
+        collectionKeys() {
+
+            const keys = this.collection.split('|');
+            return {
+                key: keys[0],
+                value: keys[1]
+            };
 
         }
     },
