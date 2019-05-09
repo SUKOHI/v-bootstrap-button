@@ -45,6 +45,12 @@ Vue.component('v-bootstrap-buttons', {
 
             }
 
+            if(typeof key === 'number') {
+
+                key = key.toString();
+
+            }
+
             this.$emit('input', key);
 
         },

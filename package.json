@@ -1,6 +1,6 @@
 {
   "name": "v-bootstrap-buttons",
-  "version": "1.0.3",
+  "version": "1.0.5",
   "description": "A Vue component that allows you to manage group buttons.",
   "main": "dist/v-bootstrap-buttons.js",
   "scripts": {

@@ -24,6 +24,10 @@ Vue.component('v-bootstrap-buttons', {
         key = this.getCollectionKey(key);
       }
 
+      if (typeof key === 'number') {
+        key = key.toString();
+      }
+
       this.$emit('input', key);
     },
     getItemKey: function getItemKey(key) {
